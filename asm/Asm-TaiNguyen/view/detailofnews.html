@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device=width, initial-scale=1.0" />
+    <title>The News</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <style>
+    a {
+      color: #cc6060;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+    }
+    .logo-wrapper {
+      text-transform: uppercase;
+      padding: 30px 0px;
+    }
+    .menu {
+      padding-left: 0px;
+      background: var(--primary-color);
+    }
+    .menu .container {
+      padding-left: 0px;
+    }
+    .menu-items .active {
+      background: #2483d6;
+    }
+    .menu .menu-items a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 30px;
+      display: block;
+    }
+    .menu .menu-items a:hover {
+      background: #2483d6;
+    }
+    .thumb {
+      width: 100%;
+    }
+    .main-news {
+      margin-top: 20px;
+    }
+    .main-news h3 {
+      line-height: 0.75;
+    }
+    .main-news h3 a {
+      font-size: 17px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .image {
+      overflow: hidden;
+    }
+    .image-sm {
+      max-height: 180px;
+    }
+    .image-sm img {
+      height: 180px;
+    }
+    .image-xs {
+      max-height: 140px;
+    }
+    .image-xxs {
+      max-height: 100px;
+    }
+    .image img {
+      object-fit: cover;
+    }
+    .font-large {
+      font-size: 0.9em !important;
+      font-weight: 600 !important;
+    }
+    .section-title {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .section-title span {
+      font-weight: 400;
+      font-size: 17px;
+      color: var(--primary-color);
+    }
+    .section-title span:after {
+      content: "";
+      position: absolute;
+      background: var(--primary-color);
+      width: 50px;
+      height: 2px;
+      left: 0;
+      bottom: 0;
+    }
+    .bb-1 {
+      padding: 20px 0px;
+      border-bottom: 1px solid #eee;
+    }
+    .section {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+    small {
+      color: #999;
+    }
+    .summary {
+      color: #777;
+    }
+    .trending .row {
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    .no-pad {
+      padding-left: 0px !important;
+    }
+  </style>
+
+  <body>
+    <div class="container main-news" style="margin-top: 100px !important">
+      <div class="row">
+        <div class="col-12 col-xl-8">
+          <h1>
+            Ghé thăm chùa Tiên Châu - ngôi chùa cổ lâu đời khi du lịch Vĩnh Long
+          </h1>
+          <small>
+            <div class="d-flex gap-2">
+              <i class="bi bi-calendar-date-fill"></i> 21/05/2024
+            </div>
+          </small>
+          <p class="mt-4 summary">
+            Nằm tọa lạc trên bãi Tiên thuộc cù lao An Bình, chùa Tiên Châu là
+            một trong những ngôi chùa lâu đời có tuổi nhất mà khách du lịch Vĩnh
+            Long nhất định nên một lần đến khám phá!
+          </p>
+          <img src="../images/banner.png" class="mt-3 thumb" />
+          <div class="story mt-4">
+            <h3>Đôi nét giới thiệu đôi nét về chùa Tiên Châu - Vĩnh Long</h3>
+            Chùa Tiên Châu nằm ở đâu? Chùa Tiên Châu tọa lạc tại tỉnh Vĩnh Long,
+            là một trong những điểm du lịch tâm linh nổi tiếng của vùng đất này.
+            Với kiến trúc độc đáo và vẻ đẹp hòa quyện giữa thiên nhiên và tâm
+            linh, chùa Tiên Châu đã trở thành địa điểm tham quan nổi tiếng thu
+            hút hàng ngàn du khách mỗi năm. Chùa Tiên Châu được xây dựng từ thế
+            kỷ thứ XIX, mang đậm nét truyền thống văn hóa Phật giáo Việt Nam. Du
+            khách nếu có dịp đến thăm chùa sẽ được chiêm ngưỡng các tác phẩm
+            điêu khắc tinh xảo, các bức tranh tường phản ánh câu chuyện Phật
+            giáo và không gian yên bình của các điện, chùa, và hồ nước xanh
+            biếc. Ngoài việc tham quan, du khách cũng có thể tham gia các hoạt
+            động tâm linh như thả hương, cúng dường và tìm hiểu về lịch sử và
+            triết lý Phật giáo. Chùa Tiên Châu không chỉ là điểm đến du lịch mà
+            còn là nơi giữ gìn và lan tỏa giá trị tinh thần của vùng đất miền
+            Tây Việt Nam.
+          </div>
+          <hr />
+          <div class="container section mt-4 no-pad">
+            <div class="section-title">
+              <span>Recommended</span>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-xs-12 col-md-6 col-lg-3">
+                <div class="mb-2 image image-xs">
+                  <img class="thumb" src="../images/banner.png" />
+                </div>
+                <a href="">
+                  India vs England 4th T20 : Match Prediction, Probabale XI,
+                  Fantasy Picks
+                </a>
+              </div>
+              <div class="col-sm-12 col-xs-12 col-md-6 col-lg-3">
+                <div class="mb-2 image image-xs">
+                  <img class="thumb" src="../images/banner.png" />
+                </div>
+                <a href="">
+                  Glenn Maxwell's All-Time IPL XI, Big names missing
+                </a>
+              </div>
+              <div class="col-sm-12 col-xs-12 col-md-6 col-lg-3">
+                <div class="mb-2 image image-xs">
+                  <img class="thumb" src="../images/banner.png" />
+                </div>
+                <a href=""> Can Rohit be next Sehwag in Indian Test Cricket </a>
+              </div>
+              <div class="col-sm-12 col-xs-12 col-md-6 col-lg-3">
+                <div class="mb-2 image image-xs">
+                  <img class="thumb" src="../images/banner.png" />
+                </div>
+                <a href="">
+                  Domestic Cricket changing the face of Nepali Cricket
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-12">
+          <div class="trending mt-4">
+            <div class="section-title">
+              <span>Trending</span>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <img class="thumb" src="../images/banner.png" />
+              </div>
+              <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <a href=""> Paras Khadka retires from international cricket </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <img class="thumb" src="../images/banner.png" />
+              </div>
+              <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <a href=""> Can Rohit be next Sehwag in Indian Test Cricket </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <img class="thumb" src="../images/banner.png" />
+              </div>
+              <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <a href=""> India win series despite Sam Curran's Heroics </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <img class="thumb" src="../images/banner.png" />
+              </div>
+              <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <a href="">
+                  Domestic Cricket Changing the Face of Nepali Cricket
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <img class="thumb" src="../images/banner.png" />
+              </div>
+              <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <a href="">
+                  Afridi to play Everest Premier League from Kathmandu Kings
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="w-100 text-center text-lg-start bg-body-tertiary text-muted opacity-75"
+    >
+      <!-- Section: Social media -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      ></section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="w-100">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Company name
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+              <p>
+                <a href="#!" class="text-reset nav-link">Angular</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">React</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Vue</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Laravel</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+              <p>
+                <a href="#!" class="text-reset nav-link">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div
+              class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 d-flex flex-column align-items-center align-items-md-start"
+            >
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p class="d-flex align-items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-house-door-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+                  />
+                </svg>
+                New York, NY 10012, US
+              </p>
+              <p class="d-flex align-items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-envelope"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                  />
+                </svg>
+                info@example.com
+              </p>
+              <p class="d-flex align-items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-telephone-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+                  />
+                </svg>
+                0833233306
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2021 Copyright:
+        <a class="text-reset nav-link fw-bold" href="https://mdbootstrap.com/"
+          >MDBootstrap.com</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <script type="text/javascript">
+      window.onscroll = function () {
+        setSticky();
+      };
+
+      navbar = document.getElementsByClassName("menu")[0];
+      var sticky = navbar.offsetTop;
+      function setSticky() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+    ></script>
+  </body>
+</html>

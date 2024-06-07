@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .details-product .carousel-inner {
+        padding: 1em;
+      }
+      .details-product .card {
+        margin: 0 0.5em;
+        box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+        border: none;
+      }
+      .details-product .carousel-control-prev,
+      .details-product .carousel-control-next {
+        background-color: #e1e1e1;
+        width: 6vh;
+        height: 6vh;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      @media (min-width: 768px) {
+        .details-product .carousel-item {
+          margin-right: 0;
+          flex: 0 0 33.333333%;
+          display: block;
+        }
+        .details-product .carousel-inner {
+          display: flex;
+        }
+      }
+      .details-product .card .img-wrapper {
+        max-width: 100%;
+        height: 13em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .details-product .card img {
+        max-height: 100%;
+      }
+      @media (max-width: 767px) {
+        .details-product .card .img-wrapper {
+          height: 17em;
+        }
+      }
+      .details-product .my-button {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid white;
+        width: 100%;
+        color: white;
+        padding: 10px 0;
+      }
+      .details-product .my-button::before {
+        content: "";
+        height: 100%;
+        position: absolute;
+        background-color: red;
+        width: 0%;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        transition: width 0.5s linear;
+      }
+      .details-product .my-button::after {
+        position: absolute;
+        content: "Hello";
+        display: flex;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-50%);
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.25s linear;
+        font-weight: bold;
+      }
+      .details-product .my-button:hover:before {
+        width: 100%;
+      }
+
+      .details-product .my-button:hover::after {
+        opacity: 1;
+      }
+
+      .detail-product {
+        background-image: url(../images/banner1.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body ng-controller="travelDetail">
+    <!-- <div class="position-relative mb-2">
+      <img
+        style="cursor: pointer"
+        class="detail-product"
+        alt="alt"
+        class="img-fluid"
+        style="height: 50vh; width: 100vw"
+      />
+      <h1
+        class="text-center position-absolute top-50 start-50 translate-middle text-white"
+      >
+        Chi tiết
+        <p class="lead">Trang chủ > Chi tiết</p>
+      </h1>
+    </div> -->
+    <div class="container" style="margin-top: 100px">
+      <div class="row">
+        <div
+          class="col-12 col-lg-8 border d-flex flex-column gap-2 d-flex flex-column"
+        >
+          <div class="d-flex justify-content-between">
+            <p class="lead">{{travelDetail.name_nation}}</p>
+            <p class="lead">{{travelDetail.name_country}}</p>
+          </div>
+          <div class="row">
+            <div
+              class="col-3 col-md-2 d-flex flex-column border-end border-success justify-content-between pb-3"
+            >
+              <p class="lead">Giá</p>
+              <h6>{{travelDetail.price | number}}</h6>
+            </div>
+            <div
+              class="col-3 col-md-2 d-flex flex-column border-end border-success justify-content-between pb-3"
+            >
+              <p class="lead">Ngày</p>
+              <h6>6 <span class="lead">ngày</span></h6>
+            </div>
+            <div
+              class="col-3 col-md-2 d-flex flex-column border-end border-success justify-content-between pb-3"
+            >
+              <p class="lead">Còn lại</p>
+              <h6>120 <span class="lead">người</span></h6>
+            </div>
+
+            <div
+              class="col-3 col-md-2 d-flex flex-column border-end border-success justify-content-between pb-3"
+            >
+              <p class="lead">Loại</p>
+              <h6>Trân mật</h6>
+            </div>
+            <div
+              class="col-3 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-between pb-3"
+            >
+              <p class="lead">Đánh giá</p>
+              <div class="d-flex gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-star-fill text-warning"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-star-fill text-warning"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-star-fill text-warning"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-star-fill text-warning"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-star-fill text-warning"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  />
+                </svg>
+              </div>
+              <div class="lead">{{travelDetail.evaluate}}/5</div>
+            </div>
+          </div>
+
+          <img
+            style="cursor: pointer"
+            src="{{travelDetail.images[0]}}"
+            alt=""
+            class="img-fluid"
+          />
+
+          <div class="row" style="margin-top: 12px">
+            <div
+              class="col-12 col-md-3"
+              style="margin-bottom: 12px; min-height: 150px"
+            >
+              <img
+                style="cursor: pointer"
+                src="{{travelDetail.images[1]}}"
+                alt=""
+                class="w-100 h-100"
+              />
+            </div>
+
+            <div
+              class="col-12 col-md-3"
+              style="margin-bottom: 12px; min-height: 150px"
+            >
+              <img
+                style="cursor: pointer"
+                src="{{travelDetail.images[2]}}"
+                alt=""
+                class="w-100 h-100"
+              />
+            </div>
+            <div
+              class="col-12 col-md-3"
+              style="margin-bottom: 12px; min-height: 150px"
+            >
+              <img
+                style="cursor: pointer"
+                src="{{travelDetail.images[3]}}"
+                alt=""
+                class="w-100 h-100"
+              />
+            </div>
+            <div
+              class="col-12 col-md-3"
+              style="margin-bottom: 12px; min-height: 150px"
+            >
+              <img
+                style="cursor: pointer"
+                src="{{travelDetail.image}}"
+                alt=""
+                class="w-100 h-100"
+              />
+            </div>
+          </div>
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="home-tab-pane"
+                aria-selected="true"
+              >
+                Description
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="profile-tab-pane"
+                aria-selected="false"
+              >
+                Contact
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home-tab-pane"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+              tabindex="0"
+            >
+              {{travelDetail.description}}
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profile-tab-pane"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+              tabindex="0"
+            >
+              Fpt Polytechnic
+            </div>
+          </div>
+          <!-- Notification -->
+          <div class="row border mt-2">
+            <div class="col-4 d-flex justify-content-center align-items-center">
+              <img
+                src="../images/img_single_tour_1.webp"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="col-8">
+              <h1>Chú ý</h1>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Mang theo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mang theo bậc lửa</td>
+                  </tr>
+                  <tr>
+                    <td>Mang theo dao</td>
+                  </tr>
+                  <tr>
+                    <td>Mang theo túi ngủ</td>
+                  </tr>
+                  <tr>
+                    <td>Mang theo liều cấm trại</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Google map -->
+          <div class="google map">
+            <h1>Địa điểm</h1>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4441623916387!2d106.62348197477964!3d10.853782889299758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b6c59ba4c97%3A0x535e784068f1558b!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1svi!2s!4v1715166934956!5m2!1svi!2s"
+              width="600"
+              height="450"
+              style="border: 0; width: 100%"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <!-- You may also like -->
+          <div class="row">
+            <h1>Có liên quan</h1>
+            <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 24px">
+              <div class="w-100">
+                <div class="card" style="min-width: 274px">
+                  <div
+                    class="card-image-detail-container w-100"
+                    style="height: 250px"
+                  >
+                    <img
+                      src="{{travelDetail.images[3]}}"
+                      class="card-img-top"
+                      alt="..."
+                      style="height: 100%; object-fit: cover"
+                    />
+                  </div>
+                  <div class="card-body" style="padding: 10px">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="lead" style="margin-bottom: 12px">
+                        TP. HCM
+                      </div>
+                      <h5 class="card-title">Việt Nam</h5>
+                    </div>
+                    <div class="overflow-auto" style="height: 100px">
+                      <p class="card-text">
+                        Là một quốc gia đang phát triển nằm bên bờ Thái Bình
+                        Dương, Việt Nam sở hữu rất nhiều điểm mạnh để phát triển
+                        du lịch. Thực vậy, ngoài các vùng đất mới mẻ ngoài lãnh
+                        thổ, nhiều tín đồ du ngoạn vẫn chọn khám phá, check-in ở
+                        những địa điểm du lịch Việt Nam.
+                      </p>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-2"
+                      >
+                        <div class="d-flex gap-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                        </div>
+                        <div class="lead">
+                          4.3/<span class="fw-bolder">5</span>
+                        </div>
+                      </div>
+                      <a href="./details.html" class="btn btn-primary">Book</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 24px">
+              <div class="w-100">
+                <div class="card" style="min-width: 274px">
+                  <div
+                    class="card-image-detail-container w-100"
+                    style="height: 250px"
+                  >
+                    <img
+                      src="{{travelDetail.images[0]}}"
+                      class="card-img-top"
+                      alt="..."
+                      style="height: 100%; object-fit: cover"
+                    />
+                  </div>
+                  <div class="card-body" style="padding: 10px">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="lead" style="margin-bottom: 12px">
+                        TP. HCM
+                      </div>
+                      <h5 class="card-title">Việt Nam</h5>
+                    </div>
+                    <div class="overflow-auto" style="height: 100px">
+                      <p class="card-text">
+                        Là một quốc gia đang phát triển nằm bên bờ Thái Bình
+                        Dương, Việt Nam sở hữu rất nhiều điểm mạnh để phát triển
+                        du lịch. Thực vậy, ngoài các vùng đất mới mẻ ngoài lãnh
+                        thổ, nhiều tín đồ du ngoạn vẫn chọn khám phá, check-in ở
+                        những địa điểm du lịch Việt Nam.
+                      </p>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-2"
+                      >
+                        <div class="d-flex gap-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                        </div>
+                        <div class="lead">
+                          4.3/<span class="fw-bolder">5</span>
+                        </div>
+                      </div>
+                      <a href="#" class="btn btn-primary">Book</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 24px">
+              <div class="w-100">
+                <div class="card" style="min-width: 274px">
+                  <div
+                    class="card-image-detail-container w-100"
+                    style="height: 250px"
+                  >
+                    <img
+                      src="{{travelDetail.images[2]}}"
+                      class="card-img-top"
+                      alt="..."
+                      style="height: 100%; object-fit: cover"
+                    />
+                  </div>
+                  <div class="card-body" style="padding: 10px">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="lead" style="margin-bottom: 12px">
+                        TP. HCM
+                      </div>
+                      <h5 class="card-title">Việt Nam</h5>
+                    </div>
+                    <div class="overflow-auto" style="height: 100px">
+                      <p class="card-text">
+                        Là một quốc gia đang phát triển nằm bên bờ Thái Bình
+                        Dương, Việt Nam sở hữu rất nhiều điểm mạnh để phát triển
+                        du lịch. Thực vậy, ngoài các vùng đất mới mẻ ngoài lãnh
+                        thổ, nhiều tín đồ du ngoạn vẫn chọn khám phá, check-in ở
+                        những địa điểm du lịch Việt Nam.
+                      </p>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-2"
+                      >
+                        <div class="d-flex gap-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill text-warning"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                            />
+                          </svg>
+                        </div>
+                        <div class="lead">
+                          4.3/<span class="fw-bolder">5</span>
+                        </div>
+                      </div>
+                      <a href="#" class="btn btn-primary">Book</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 m-lg-0 mt-2 col-lg-4 border p-3 d-flex flex-column justify-content-between sticky-top h-auto"
+          style="max-height: 550px"
+        >
+          <div>
+            <h2>Đặt vé tại đây</h2>
+
+            <h4>Vé</h4>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex justify-content-between bg-white p-2 border">
+                <div class="col-3 d-flex flex-column">
+                  <p>Người lớn</p>
+                  <div class="lead fs-6">> 10 tuổi</div>
+                </div>
+                <div
+                  class="col-6 bg-priamry d-flex align-items-center justify-content-center text-warning"
+                >
+                  {{travelDetail.price / 4 | number}} VND
+                </div>
+                <div
+                  class="col-3 d-flex justify-content-end align-items-center"
+                >
+                  <div class="btn">+</div>
+                  <div class="lead">1</div>
+                  <div class="btn">-</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between bg-white p-2 border">
+                <div class="col-3 d-flex flex-column">
+                  <p>Người lớn</p>
+                  <div class="lead fs-6">> 10 tuổi</div>
+                </div>
+                <div
+                  class="col-6 bg-priamry d-flex align-items-center justify-content-center text-warning"
+                >
+                  {{travelDetail.price / 2 | number}} VND
+                </div>
+                <div
+                  class="col-3 d-flex justify-content-end align-items-center"
+                >
+                  <div class="btn">+</div>
+                  <div class="lead">1</div>
+                  <div class="btn">-</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between bg-white p-2 border">
+                <div class="col-3 d-flex flex-column">
+                  <p>Người lớn</p>
+                  <div class="lead fs-6">> 18 tuổi</div>
+                </div>
+                <div
+                  class="col-6 bg-priamry d-flex align-items-center justify-content-center text-warning"
+                >
+                  {{travelDetail.price | number}} VND
+                </div>
+                <div
+                  class="col-3 d-flex justify-content-end align-items-center"
+                >
+                  <div class="btn">+</div>
+                  <div class="lead">1</div>
+                  <div class="btn">-</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-end">
+              <h4>Tổng cộng</h4>
+              <h6 class="text-primary fst-normal">
+                {{travelDetail.price | number}} VND
+              </h6>
+            </div>
+            <button
+              class="btn btn-primary w-100"
+              ng-click="addCart(travelDetail, $event)"
+            >
+              Đặt ngay
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="text-center text-lg-start bg-body-tertiary text-muted opacity-75"
+    >
+      <!-- Section: Social media -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      ></section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Company name
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+              <p>
+                <a href="#!" class="text-reset nav-link">Angular</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">React</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Vue</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Laravel</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+              <p>
+                <a href="#!" class="text-reset nav-link">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset nav-link">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div
+              class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 d-flex flex-column align-items-center align-items-md-start"
+            >
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p class="d-flex align-items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-house-door-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+                  />
+                </svg>
+                New York, NY 10012, US
+              </p>
+              <p class="d-flex align-items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-envelope"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                  />
+                </svg>
+                info@example.com
+              </p>
+              <p class="d-flex align-items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-telephone-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+                  />
+                </svg>
+                0833233306
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2021 Copyright:
+        <a class="text-reset nav-link fw-bold" href="https://mdbootstrap.com/"
+          >MDBootstrap.com</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+    ></script>
+    <script>
+      var multipleCardCarousel = document.querySelector(
+        ".details-product #carouselExampleControls"
+      );
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+          interval: false,
+        });
+        var carouselWidth = $(".details-product .carousel-inner")[0]
+          .scrollWidth;
+
+        var cardWidth = $(".details-product .carousel-item").width();
+        var scrollPosition = 0;
+        $(".details-product .carousel-control-next").on("click", function () {
+          if (scrollPosition < carouselWidth - cardWidth * 4) {
+            scrollPosition += cardWidth;
+
+            $(".details-product .carousel-inner").animate(
+              { scrollLeft: scrollPosition },
+              600
+            );
+          }
+        });
+        $(".details-product .carousel-control-prev").on("click", function () {
+          if (scrollPosition > 0) {
+            scrollPosition -= cardWidth;
+            $(".details-product .carousel-inner").animate(
+              { scrollLeft: scrollPosition },
+              600
+            );
+          }
+        });
+      } else {
+        $(multipleCardCarousel).addClass("slide");
+      }
+    </script>
+  </body>
+</html>

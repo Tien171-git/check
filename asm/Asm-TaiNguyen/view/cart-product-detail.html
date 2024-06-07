@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    ng-controller="cart"
+    style="
+      background-image: url(../images/anh2.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    "
+  >
+    <section class="h-100 h-custom" style="margin-top: 100px">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div
+              class="card card-registration card-registration-2"
+              style="border-radius: 15px"
+            >
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div
+                    class="col-lg-8"
+                    style="
+                      height: 648px;
+                      overflow-y: scroll;
+                      padding-left: 10px;
+                      padding-right: 10px;
+                    "
+                  >
+                    <d iv class="p-5">
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-5"
+                      >
+                        <h1 class="fw-bold mb-0 text-black">Giỏ hàng</h1>
+                      </div>
+                      <hr class="my-4" />
+                      <div ng-repeat="travel in cartData.travels">
+                        <div
+                          class="row mb-4 d-flex justify-content-between align-items-center"
+                        >
+                          <div class="col-md-2 col-lg-2 col-xl-2">
+                            <img
+                              src="{{travel.image}}"
+                              class="img-fluid rounded-3"
+                              alt="Cotton T-shirt"
+                              style="height: 71px"
+                            />
+                          </div>
+                          <div class="col-md-3 col-lg-3 col-xl-3">
+                            <h6 class="text-muted">{{travel.name_nation}}</h6>
+                            <h6 class="text-black mb-0">
+                              {{travel.name_country}}
+                            </h6>
+                          </div>
+                          <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                            <button
+                              data-mdb-button-init
+                              data-mdb-ripple-init
+                              class="btn btn-link px-2"
+                              ng-click="handleQuantity(travel, 'decrease')"
+                              onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            >
+                              <i class="fas fa-minus"></i>
+                            </button>
+
+                            <input
+                              id="form1"
+                              min="0"
+                              name="quantity"
+                              value="{{travel.quantity}}"
+                              type="number"
+                              class="form-control form-control-sm"
+                              disabled
+                            />
+
+                            <button
+                              data-mdb-button-init
+                              data-mdb-ripple-init
+                              class="btn btn-link px-2"
+                              ng-click="handleQuantity(travel, 'increase')"
+                              onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            >
+                              <i class="fas fa-plus"></i>
+                            </button>
+                          </div>
+                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                            <h6 class="mb-0">
+                              {{travel.price * travel.quantity | number}} đ
+                            </h6>
+                          </div>
+                          <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                            <a
+                              ng-click="removeCart(travel)"
+                              class="text-muted"
+                              style="cursor: pointer"
+                            >
+                              <i class="fas fa-times"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <hr class="my-4" />
+                      </div>
+
+                      <div class="pt-5">
+                        <h6 class="mb-0">
+                          <a href="#/home" class="text-body"
+                            ><i class="fas fa-long-arrow-alt-left me-2"></i>Trở
+                            về trang chủ</a
+                          >
+                        </h6>
+                      </div>
+                    </d>
+                  </div>
+                  <div class="col-lg-4 bg-grey">
+                    <div class="p-5">
+                      <h3 class="fw-bold mb-5 mt-2 pt-1">Tổng cộng</h3>
+                      <hr class="my-4" />
+
+                      <div class="d-flex justify-content-between mb-4">
+                        <h5 class="text-uppercase">Tổng tiền</h5>
+                        <h5>{{totalAmount | number}} đ</h5>
+                      </div>
+
+                      <h5 class="text-uppercase mb-3">Số lượng</h5>
+
+                      <div class="mb-4 pb-2">
+                        <select data-mdb-select-init>
+                          <option value="2">1</option>
+                          <option value="3">2</option>
+                          <option value="4">3</option>
+                        </select>
+                      </div>
+
+                      <h5 class="text-uppercase mb-3">Mã giảm giá</h5>
+
+                      <div class="mb-5">
+                        <div data-mdb-input-init class="form-outline">
+                          <input
+                            type="text"
+                            id="form3Examplea2"
+                            class="form-control form-control-lg"
+                          />
+                          <label class="form-label" for="form3Examplea2"
+                            >Nhập mã giảm giá</label
+                          >
+                        </div>
+                      </div>
+
+                      <hr class="my-4" />
+
+                      <div class="d-flex justify-content-between mb-5">
+                        <h5 class="text-uppercase">Tổng tiền</h5>
+                        <h5>{{totalAmount | number}} đ</h5>
+                      </div>
+
+                      <button
+                        type="button"
+                        data-mdb-button-init
+                        data-mdb-ripple-init
+                        class="btn btn-dark btn-block btn-lg"
+                        data-mdb-ripple-color="dark"
+                        ng-click="bookSticket()"
+                      >
+                        Đặt vé
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+    ></script>
+  </body>
+</html>

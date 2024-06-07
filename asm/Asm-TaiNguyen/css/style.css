@@ -1,0 +1,658 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* 
+body{
+  font-size: 10px;
+
+} */
+
+:root {
+  --primary-color: #087dc2;
+  --primary-color-hover: #1ac2f3;
+}
+
+.heading {
+  background: var(--primary-color);
+  padding: 12px 0;
+  font-size: 12px;
+  color: white;
+}
+
+.heading .auth > div:hover {
+  cursor: pointer;
+  color: var(--primary-color-hover);
+  transition: color 0.5s;
+}
+
+.banner {
+  background-image: url("https://ik.imagekit.io/tvlk/blog/2022/02/dia-diem-du-lich-viet-nam-cover.jpeg");
+  background-position: center;
+  background-size: cover;
+  padding: 20%;
+  position: relative;
+}
+
+.banner:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  opacity: 0.4;
+}
+
+.overlay-banner {
+  position: absolute;
+  bottom: 61px;
+  left: 244px;
+}
+
+.btn.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  outline: none;
+}
+
+.btn.btn-primary:hover {
+  background: var(--primary-color-hover);
+  color: whitesmoke;
+}
+
+.card-footer:hover {
+  color: var(--primary-color-hover);
+}
+
+.card-body {
+  padding: 0;
+}
+
+.product-hot {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-hot:hover .image-product-hot::after {
+  display: block;
+}
+.product-hot:hover .product-hot-icon {
+  opacity: 1;
+}
+
+.product-hot:hover .product-hot-button {
+  background: var(--primary-color-hover);
+  color: whitesmoke;
+}
+
+.product-hot:hover .product-hot-footer {
+  color: var(--primary-color);
+}
+
+.image-product-hot {
+  position: relative;
+}
+.image-product-hot::after {
+  position: relative;
+}
+
+.image-product-hot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-color);
+  opacity: 0.3;
+  display: none;
+}
+
+.product-hot-icon {
+  font-size: 30px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  color: white;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translateX(200%);
+  transform: translateY(-100%);
+  animation: shaky 2s linear infinite;
+  opacity: 0;
+  transition: all 1s;
+}
+
+@keyframes shaky {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* welcome */
+.welcome {
+  height: 500px;
+  background-image: url("https://www.vietourist.com.vn/public/frontend/uploads/kceditor/images/cuoc-xay-dung-kinh-thanh-cuoi-cung-cua-viet-nam-040809-min.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.welcome::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.2;
+}
+
+.welcome > div {
+  background: white;
+  /* width: 50%; */
+  padding: 10px 14px;
+  border-radius: 6px;
+  z-index: 99;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  text-align: justify;
+  opacity: 0.8;
+}
+
+@keyframes btn_effect {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Foreign */
+
+.foreign {
+  background-image: url("https://ceodestinations.com/wp-content/uploads/2018/07/iStock-825341808-1280x640.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+/* Location */
+.location-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.location-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  animation: scroll-left 20s linear infinite;
+  width: 100%;
+}
+.location-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  animation: scroll-right 20s linear infinite;
+  width: 100%;
+}
+
+.location-item {
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  width: 120px;
+  height: 120px;
+  background-image: url("../images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 4px 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Details */
+
+.details {
+  padding: 10px;
+  width: 100%;
+  height: 600px;
+}
+.details .grid-image {
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas:
+    "img1 img1 img2 img2 img3 img3"
+    "img1 img1 img2 img2 img3 img3"
+    "img1 img1 img4 img4 img5 img5"
+    "img1 img1 img4 img4 img5 img5";
+}
+
+.details .grid-image > div:nth-child(1) {
+  background-image: url("../images/img1.jpg");
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 100%;
+  grid-area: img1;
+}
+.details .grid-image > div:nth-child(2) {
+  background-image: url("../images/img2.jpg");
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 100%;
+  grid-area: img2;
+}
+.details .grid-image > div:nth-child(3) {
+  background-image: url("../images/img3.jpg");
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 100%;
+  grid-area: img3;
+}
+.details .grid-image > div:nth-child(4) {
+  background-image: url("../images/img4.jpg");
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 100%;
+  grid-area: img4;
+}
+.details .grid-image > div:nth-child(5) {
+  background-image: url("../images/img5.jpg");
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 100%;
+  grid-area: img5;
+}
+
+@media (max-width: 700px) {
+  .details .grid-image {
+    display: flex;
+    flex-direction: column;
+  }
+  .details {
+    height: 1000px;
+  }
+}
+
+/* aside */
+.details aside {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  height: 1200px;
+}
+
+.card .card-header,
+.card-footer {
+  background: var(--primary-color);
+}
+
+:root {
+  --accent: white;
+}
+div {
+  unicode-bidi: isolate;
+}
+.background-attachment {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-image: url(../images/banner1.jpg);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .background-attachment {
+    height: 100vh;
+  }
+}
+@media (max-width: 1100px) {
+  .background-attachment {
+    height: 600px;
+  }
+}
+
+.list-wrap {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 120px;
+  padding: 0 30px;
+}
+.list-wrap__populated {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  border-style: dashed;
+  border-width: 0 1px 0 0;
+  border-color: var(--border);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 0 15px;
+  justify-content: center;
+}
+.list-wrap__populated-wrapper {
+  position: relative;
+  max-width: 220px;
+  margin: 15px 0 0;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s,
+    -webkit-box-shadow 0.3s;
+  display: block;
+  text-align: center;
+}
+.list-wrap__populated-wrapper .box-icon__icon {
+  position: relative;
+  line-height: 1;
+  font-size: 60px;
+  display: inline-block;
+  transition: all 0.3s;
+  text-align: center;
+  color: var(--accent);
+}
+.list-wrap__populated-wrapper .box-icon {
+  position: relative;
+  min-height: 60px;
+  margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.list-wrap__populated-wrapper .box-content .box-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-family: Zourney;
+  line-height: 1.3;
+}
+.list-wrap__populated-wrapper .box-content .box-description d-none d-lg-block {
+  margin: 0;
+  color: var(--text);
+}
+.products-slider .carousel-inner {
+  padding: 1em;
+  display: flex;
+}
+.products-slider .card {
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+}
+.products-slider .carousel-control-prev,
+.products-slider .carousel-control-next {
+  background-color: #e1e1e1;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.products-slider .carousel-item {
+  margin-right: 0;
+  flex: 0 0 25%;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .products-slider .carousel-item {
+    margin-right: 0;
+    flex: 0 0 25%;
+    display: block;
+  }
+  .products-slider .carousel-inner {
+    display: flex;
+  }
+}
+
+.products-slider .my-button {
+  outline: none !important;
+  border: none !important;
+  background-color: transparent !important;
+  position: relative !important;
+  border-radius: 5px !important;
+  overflow: hidden !important;
+  border: 1px solid white !important;
+  width: 100% !important;
+  color: white !important;
+  padding: 10px 0 !important;
+}
+.products-slider .my-button::before {
+  content: "";
+  height: 100% !important ;
+  position: absolute !important ;
+  background-color: red !important ;
+  width: 0% !important ;
+  z-index: 1 !important ;
+  top: 0 !important;
+  left: 0 !important;
+  transition: width 0.2s linear !important ;
+}
+
+.products-slider .my-button:hover:before {
+  width: 100% !important;
+}
+
+.products-slider .my-button:hover::after {
+  opacity: 1 !important;
+}
+.image-decorate {
+  margin-top: 10px;
+  background-image: url(../images/banner1.jpg);
+  background-repeat: no-repeat;
+  height: 80vh;
+  background-attachment: fixed;
+}
+
+body {
+  color: #6f8ba4;
+  margin-top: 20px;
+}
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.gray-bg {
+  background-color: #f5f5f5;
+}
+/* Contact Us
+---------------------*/
+.contact-name {
+  margin-bottom: 30px;
+}
+.contact-name h5 {
+  font-size: 22px;
+  color: #20247b;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.contact-name p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.social-share a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-align: center;
+  margin-right: 10px;
+}
+.social-share .dribbble {
+  box-shadow: 0 8px 30px -4px rgba(234, 76, 137, 0.5);
+  background-color: #ea4c89;
+}
+.social-share .behance {
+  box-shadow: 0 8px 30px -4px rgba(0, 103, 255, 0.5);
+  background-color: #0067ff;
+}
+.social-share .linkedin {
+  box-shadow: 0 8px 30px -4px rgba(1, 119, 172, 0.5);
+  background-color: #0177ac;
+}
+
+.contact-form .form-control {
+  border: none;
+  border-bottom: 1px solid #20247b;
+  background: transparent;
+  border-radius: 0;
+  padding-left: 0;
+  box-shadow: none !important;
+}
+.contact-form .form-control:focus {
+  border-bottom: 1px solid #fc5356;
+}
+.contact-form .form-control.invalid {
+  border-bottom: 1px solid #ff0000;
+}
+.contact-form .send {
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  .contact-form .send {
+    margin-bottom: 20px;
+  }
+}
+
+.section-title h2 {
+  font-weight: 700;
+  color: #20247b;
+  font-size: 45px;
+  margin: 0 0 15px;
+  border-left: 5px solid #fc5356;
+  padding-left: 15px;
+}
+.section-title {
+  padding-bottom: 45px;
+}
+.contact-form .send {
+  margin-top: 20px;
+}
+.px-btn {
+  padding: 0 50px 0 20px;
+  line-height: 60px;
+  position: relative;
+  display: inline-block;
+  color: #20247b;
+  background: none;
+  border: none;
+}
+.px-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 30px;
+  background: transparent;
+  border: 1px solid rgba(252, 83, 86, 0.6);
+  border-right: 1px solid transparent;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+  width: 60px;
+  height: 60px;
+}
+.px-btn .arrow {
+  width: 13px;
+  height: 2px;
+  background: currentColor;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 25px;
+}
+.px-btn .arrow:after {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  display: inline-block;
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.navnav:hover {
+  opacity: 1 !important;
+}
+.navnav {
+  transition: 1s;
+  width: 100% !important;
+}

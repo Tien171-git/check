@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+
+    <style>
+      .nav-nav-nav:hover {
+        opacity: 1 !important;
+      }
+    </style>
+  </head>
+  <body ng-controller="home" style="margin-top: 0">
+    <div
+      class="position-fixed nav-nav-nav d-none d-md-block"
+      style="
+        transform: translateY(50%);
+        opacity: 0.6;
+        z-index: 99;
+        bottom: 50%;
+        right: 4px;
+        background: var(--primary-color);
+        width: auto;
+        height: auto;
+      "
+    >
+      <ul class="list-menu flex-column p-3 m-0" style="list-style-type: none">
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#carouselExampleCaptions"
+            >1</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#2"
+            >2</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#3"
+            >3</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#4"
+            >4</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#5"
+            >5</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#6"
+            >6</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#7"
+            >7</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light border-bottom"
+            href="#8"
+            >8</a
+          >
+        </li>
+        <li class="d-flex justify-content-center">
+          <a
+            style="text-decoration: none; font-size: 18px"
+            class="text-light"
+            href="#1"
+            ><i class="bi bi-arrow-up"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+    <!-- My Navbar -->
+
+    <!-- My Banner -->
+    <!-- Carousel wrapper -->
+    <div
+      id="carouselBasicExample"
+      class="carousel slide carousel-fade position-relative"
+      data-mdb-ride="carousel"
+      data-mdb-carousel-init
+      style="height: 80vh"
+    >
+      <div
+        class="position-absolute container d-md-block"
+        style="
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10000;
+          background-color: white;
+          opacity: 0.9;
+          width: 80%;
+        "
+      >
+        <h2 class="text-center">Tìm kiếm</h2>
+        <div class="row" role="group" aria-label="Basic example">
+          <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 24px">
+            <select
+              class="form-select w-full"
+              aria-label="Default select example"
+            >
+              <option selected>Thành phố muốn tới</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 24px">
+            <select
+              class="form-select w-full"
+              aria-label="Default select example"
+            >
+              <option selected>Thành phố muốn tới</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 24px">
+            <select
+              class="form-select w-full"
+              aria-label="Default select example"
+            >
+              <option selected>Thành phố muốn tới</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-mdb-target="#carouselBasicExample"
+          data-mdb-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-mdb-target="#carouselBasicExample"
+          data-mdb-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-mdb-target="#carouselBasicExample"
+          data-mdb-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+
+      <!-- Inner -->
+      <div class="carousel-inner" style="height: 80vh">
+        <!-- Single item -->
+        <div class="carousel-item active" style="height: 100% !important">
+          <img
+            src="../images/banner1.jpg"
+            class="d-block w-100 h-100"
+            style="object-fit: cover !important"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Việt Nam</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item" style="height: 100% !important">
+          <img
+            src="../images/anh6.jpeg"
+            class="d-block w-100 h-100"
+            style="object-fit: cover !important"
+            alt="Canyon at Nigh"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Trung Quốc</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item" style="height: 100% !important">
+          <img
+            src="../images/anh8.jpeg"
+            class="d-block w-100 h-100"
+            style="object-fit: cover !important"
+            alt="Cliff Above a Stormy Sea"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Hàn Quốc</h5>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-mdb-target="#carouselBasicExample"
+        data-mdb-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-mdb-target="#carouselBasicExample"
+        data-mdb-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Carousel wrapper -->
+
+    <!-- Slider -->
+
+    <!-- My Viet Nam -->
+    <div class="container mt-2" id="3">
+      <h1>Du lịch Việt Nam</h1>
+      <div ng-if="!travel_hot">...</div>
+      <div ng-if="travel_hot" class="row">
+        <div
+          ng-repeat="item in travel_hot | filter: {name_nation: 'Việt Nam'} | limitTo : 8"
+          class="col-12 col-md-6 col-lg-4 col-xl-3"
+          style="margin-bottom: 24px"
+        >
+          <div class="w-100">
+            <div class="card" style="min-width: 274px">
+              <div
+                class="card-image-detail-container w-100"
+                style="height: 250px"
+              >
+                <img
+                  src="{{item.image}}"
+                  class="card-img-top"
+                  alt="..."
+                  style="height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="card-body" style="padding: 10px">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="lead" style="margin-bottom: 12px">
+                    {{item.name_nation}}
+                  </div>
+                  <h5 class="card-title">{{item.name_country}}</h5>
+                </div>
+                <div class="overflow-auto" style="height: 100px">
+                  <p class="card-text">{{item.description}}</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div
+                    class="d-flex justify-content-between align-items-center gap-2"
+                  >
+                    <div class="d-flex gap-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="lead">
+                      {{item.evaluate}}/<span class="fw-bolder">5</span>
+                    </div>
+                  </div>
+                  <a href="#!detail/{{item.id}}" class="btn btn-primary"
+                    >Đặt ngay</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-2" id="3">
+      <h1>Du lịch nước ngoài</h1>
+      <div ng-if="!travel_hot">...</div>
+      <div ng-if="travel_hot" class="row">
+        <div
+          ng-repeat="item in travel_hot | filter: {name_nation: '!Việt Nam'} | limitTo : 8"
+          class="col-12 col-md-6 col-lg-4 col-xl-3"
+          style="margin-bottom: 24px"
+        >
+          <div class="w-100">
+            <div class="card" style="min-width: 274px">
+              <div
+                class="card-image-detail-container w-100"
+                style="height: 250px"
+              >
+                <img
+                  src="{{item.image}}"
+                  class="card-img-top"
+                  alt="..."
+                  style="height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="card-body" style="padding: 10px">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="lead" style="margin-bottom: 12px">
+                    {{item.name_nation}}
+                  </div>
+                  <h5 class="card-title">{{item.name_country}}</h5>
+                </div>
+                <div class="overflow-auto" style="height: 100px">
+                  <p class="card-text">{{item.description}}</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div
+                    class="d-flex justify-content-between align-items-center gap-2"
+                  >
+                    <div class="d-flex gap-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-star-fill text-warning"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="lead">
+                      {{item.evaluate}}/<span class="fw-bolder">5</span>
+                    </div>
+                  </div>
+                  <a href="#!detail/{{item.id}}" class="btn btn-primary"
+                    >Đặt ngay</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- My Background Attachment -->
+    <div class="background-attachment" id="3">
+      <div class="container">
+        <section class="list-wrap mb-0 mb-md-120">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 col-lg-3 text-white" style="min-height: 269px">
+                <div class="list-wrap__populated" style="height: 100%">
+                  <div class="list-wrap__populated-wrapper">
+                    <div class="box-icon">
+                      <div class="box-icon__icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-backpack2"
+                          style="width: 60px; height: 60px"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            d="M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"
+                          />
+                          <path
+                            d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v1.191l1.17.585a1.5 1.5 0 0 1 .83 1.342V13.5a1.5 1.5 0 0 1-1.5 1.5h-1c-.456.607-1.182 1-2 1h-7a2.5 2.5 0 0 1-2-1h-1A1.5 1.5 0 0 1 0 13.5v-2.382a1.5 1.5 0 0 1 .83-1.342L2 9.191V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0M3 13.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8A5 5 0 0 0 3 8zm-1-3.19-.724.362a.5.5 0 0 0-.276.447V13.5a.5.5 0 0 0 .5.5H2zm12 0V14h.5a.5.5 0 0 0 .5-.5v-2.382a.5.5 0 0 0-.276-.447L14 10.309Z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="box-content">
+                      <h6 class="box-title">
+                        <span> Trải nghiệm đáng nhớ </span>
+                      </h6>
+                      <p class="box-description d-none d-lg-block">
+                        Duyệt và đặt các chuyến tham quan và hoạt động thật
+                        tuyệt vời.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3 text-white" style="min-height: 269px">
+                <div class="list-wrap__populated" style="height: 100%">
+                  <div class="list-wrap__populated-wrapper">
+                    <div class="box-icon">
+                      <div class="box-icon__icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-airplane-engines"
+                          style="width: 60px; height: 60px"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 0c-.787 0-1.292.592-1.572 1.151A4.35 4.35 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0M7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1s.458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="box-content">
+                      <h6 class="box-title">
+                        <span> Tính linh hoạt tối đa </span>
+                      </h6>
+                      <p class="box-description d-none d-lg-block">
+                        Bạn nắm quyền kiểm soát với các tùy chọn hủy và thanh
+                        toán miễn phí.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3 text-white" style="min-height: 269px">
+                <div class="list-wrap__populated" style="height: 100%">
+                  <div class="list-wrap__populated-wrapper">
+                    <div class="box-icon">
+                      <div class="box-icon__icon">
+                        <i class="bi bi-binoculars"></i>
+                      </div>
+                    </div>
+                    <div class="box-content">
+                      <h6 class="box-title">
+                        <span> Tùy chỉnh mở rộng </span>
+                      </h6>
+                      <p class="box-description d-none d-lg-block">
+                        Duyệt và đặt các chuyến tham quan và hoạt động thật
+                        tuyệt vời.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3 text-white" style="min-height: 269px">
+                <div class="list-wrap__populated" style="height: 100%">
+                  <div class="list-wrap__populated-wrapper">
+                    <div class="box-icon">
+                      <div class="box-icon__icon">
+                        <i class="bi bi-alarm"></i>
+                      </div>
+                    </div>
+                    <div class="box-content">
+                      <h6 class="box-title">
+                        <span> Sự hài lòng của khách hàng </span>
+                      </h6>
+                      <p class="box-description d-none d-lg-block">
+                        Duyệt và đặt các chuyến tham quan và hoạt động thật
+                        tuyệt vời.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- My Author -->
+    <div class="container-fluid" id="4">
+      <section class="section services-section" id="services">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="section-title">
+                <h2>Chuẩn bị kỳ nghỉ tuyệt vời</h2>
+                <p>
+                  Chuẩn bị đầy đủ hành trang và phương tiện di chuyển cho kỳ
+                  nghỉ tuyệt vời sắp tới.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-bus"></i>
+                </div>
+                <div class="feature-content">
+                  <h5>Bus</h5>
+                  <p>
+                    Chuẩn bị sẵn túi xách nhẹ, chọn ghế gần cửa sổ trên xe buýt,
+                    ngồi và thư giãn trong khi ngắm cảnh thành phố từ trên cao.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-plane"></i>
+                </div>
+                <div class="feature-content">
+                  <h5>Máy bay</h5>
+                  <p>
+                    Hãy chuẩn bị trước, tận hưởng cảm giác bay trên không trung
+                    và ngắm nhìn cảnh quan từ trên cao. Đến nơi đích, bạn sẽ có
+                    những kỷ niệm đáng nhớ!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-train"></i>
+                </div>
+                <div class="feature-content">
+                  <h5>Tàu lửa</h5>
+                  <p>
+                    Lên tàu lửa, ngồi thoải mái, ngắm cảnh từ cửa sổ, và tận
+                    hưởng cuộc hành trình an toàn và tiện nghi.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="feature-content">
+                  <h5>Hỗ trợ</h5>
+                  <p>
+                    Hướng dẫn viên tuyệt vời luôn là người góp phần làm cho
+                    chuyến đi của bạn trở nên đặc biệt và đáng nhớ.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-th"></i>
+                </div>
+                <div class="feature-content">
+                  <h5>Đặt lịch</h5>
+                  <p>
+                    Đặt lịch và tận hưởng kỳ nghỉ dài hạn, bước đến những nơi
+                    tuyệt vời cùng với những người bạn yêu quý.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-cog"></i>
+                </div>
+                <div class="feature-content">
+                  <h5>Đặt phòng</h5>
+                  <p>
+                    Nơi dừng chân cho những chuyến đi tuyệt vời. Nghỉ ngơi và
+                    nạp năng lượng cho những hành trình tiếp theo.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- / -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- My Decorate -->
+    <div
+      class="image-decorate"
+      id="5"
+      style="display: flex; justify-content: center; align-items: center"
+    >
+      <div class="d-flex gap-4" style="width: 80%">
+        <div class="bg-white opacity-75 d-none d-lg-block" style="flex: 1">
+          <h1 class="text-center">Việt Nam</h1>
+          <p class="px-2 overflow-auto" style="text-align: justify">
+            Việt Nam - Điểm đến du lịch lý tưởng không thể bỏ qua Việt Nam, dải
+            đất hình chữ S xinh đẹp, là điểm đến du lịch lý tưởng không thể bỏ
+            qua với những du khách yêu thích khám phá thiên nhiên, trải nghiệm
+            văn hóa và thưởng thức ẩm thực độc đáo. Nơi đây sở hữu vô số cảnh
+            quan thiên nhiên hùng vĩ, di sản văn hóa lâu đời, con người thân
+            thiện và mến khách cùng nền ẩm thực phong phú, đa dạng.
+          </p>
+        </div>
+        <div class="" style="flex: 1">
+          <iframe
+            style="width: 100%"
+            width="560"
+            height="315"
+            class="w-80 w-lg-100"
+            src="https://www.youtube.com/embed/FKSNcuQTjoQ?si=_HYB3gF9QXqJ--LA"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- My Map -->
+    <div class="w-100 my-5 d-flex flex-column" id="6">
+      <h2 class="div text-center">Địa điểm của chúng tôi</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1006553.8515664403!2d105.12422715429061!3d9.778674023687831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a08906415c355f%3A0x416815a99ebd841e!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1svi!2s!4v1715352770791!5m2!1svi!2s"
+        width="1200"
+        style="width: 100%"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        class="w-full"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <!-- My Contact -->
+    <section class="section gray-bg" id="contactus">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="section-title">
+              <h2>Liên hệ</h2>
+              <p>Liện hệ cho chúng tôi</p>
+            </div>
+          </div>
+        </div>
+        <div class="row flex-row-reverse">
+          <div class="col-md-7 col-lg-8 m-15px-tb">
+            <div class="contact-form">
+              <form
+                action="/"
+                method="post"
+                class="contactform contact_form"
+                id="contact_form"
+              >
+                <div
+                  class="returnmessage valid-feedback p-15px-b"
+                  data-success="Your message has been received, We will contact you soon."
+                ></div>
+                <div class="empty_notice invalid-feedback p-15px-b">
+                  <span>Xin vui lòng nhập đầy đủ các trường</span>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        id="name"
+                        type="text"
+                        placeholder="Họ và tên"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        id="email"
+                        type="text"
+                        placeholder="Địa chỉ email"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input
+                        id="subject"
+                        type="text"
+                        placeholder="Tiêu đề"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea
+                        id="message"
+                        placeholder="Tin nhắn"
+                        class="form-control"
+                        rows="3"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="send">
+                      <a id="send_message" class="px-btn theme" href="#"
+                        ><span>Liên hệ cho chúng tôi</span> <i class="arrow"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-5 col-lg-4 m-15px-tb">
+            <div class="contact-name">
+              <h5>Mail</h5>
+              <p>tiendqpc07858@fpt.edu.vn</p>
+            </div>
+            <div class="contact-name">
+              <h5>Cao đẳng FPT Polytechnic</h5>
+              <p>Quận 12, <br />Công viên phần mềm Quang Trung</p>
+            </div>
+            <div class="contact-name">
+              <h5>Phone</h5>
+              <p>+01 123 654 8096</p>
+            </div>
+            <div class="social-share nav">
+              <a class="dribbble" href="#">
+                <i class="fab fa-dribbble"></i>
+              </a>
+              <a class="behance" href="#">
+                <i class="fab fa-behance"></i>
+              </a>
+              <a class="linkedin" href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Footer -->
+  </body>
+</html>
